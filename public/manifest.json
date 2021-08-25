@@ -30,7 +30,7 @@
     "scope": "/",
     "theme_color": "#000000",
     "share_target": {
-      "action": "/index",
+      "action": "/read",
       "method": "GET",
       "enctype": "application/x-www-form-urlencoded",
       "params": {
