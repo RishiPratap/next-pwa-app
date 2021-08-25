@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  window.videolink = parsedUrl.searchParams.get('description');
   return (
     <div className={styles.container}>
       <Head>
@@ -27,7 +28,6 @@ export default function Home() {
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
-
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
@@ -46,6 +46,7 @@ export default function Home() {
             className={styles.card}
           >
             <h2>Deploy &rarr;</h2>
+            <p>Videolink: {videolink || 'none'}</p>
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
