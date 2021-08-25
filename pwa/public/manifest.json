@@ -1,0 +1,32 @@
+{
+    "short_name": "Next PWA",
+    "name": "Next PWA Tutorial",
+    "description": "...",
+    "icons": [
+      {
+        "src": "/icons/android-36x36.png",
+        "type": "image/png",
+        "sizes": "36x36"
+      },
+      {
+        "src": "/icons/android-48x48.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+        "src": "/icons/android-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/pwa-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#000000"
+  }
