@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useEffect} from "react";
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 var ParseURL = require('parsedurl');
 export default function Home() {
-let params = new URLSearchParams(document.location.search.substring(1));
-var videolink = params.get('description');
+    useEffect(() => {
+        let params = new URLSearchParams(document.location.search.substring(1));
+        const videolink = params.get('description');
+        alert(videolink);
+      }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -48,7 +51,7 @@ var videolink = params.get('description');
             className={styles.card}
           >
             <h2>Deploy &rarr;</h2>
-            <p>Videolink: {videolink || 'none'}</p>
+           
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
