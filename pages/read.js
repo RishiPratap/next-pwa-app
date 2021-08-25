@@ -4,7 +4,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 var ParseURL = require('parsedurl');
 export default function Home() {
-const videolink = ParseURL.searchParams.get('description');
+let params = new URLSearchParams(document.location.search.substring(1));
+var videolink = params.get('description');
   return (
     <div className={styles.container}>
       <Head>
