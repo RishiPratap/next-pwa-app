@@ -10,7 +10,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+self.addEventListener('fetch', event => {
+  // ignore all requests with are not of method POST and which are not the URL we defined in in share_target as action
+  if (event.request.method !== 'POST') {
+      return;
+  }
 
+  // Code mostly from https://paul.kinlan.me/file-web-share-target/
+  event.respondWith(Response.redirect('/read'));
+  event.waitUntil(async function() {
+      const data = await event.request.formData();
+      const client = await self.clients.get(event.resultingClientId || event.clientId);
+
+      const file = data.get('file');
+      // send the image data to the client
+      client.postMessage({ file, action: 'load-image' });
+  }());
+});
 // If the loader is already loaded, just stop.
 if (!self.define) {
   const singleRequire = name => {
