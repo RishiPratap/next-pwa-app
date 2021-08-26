@@ -10,6 +10,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+// If the loader is already loaded, just stop.
 self.addEventListener('fetch', event => {
   // ignore all requests with are not of method POST and which are not the URL we defined in in share_target as action
   if (event.request.method !== 'POST') {
@@ -27,7 +29,6 @@ self.addEventListener('fetch', event => {
       client.postMessage({ file, action: 'load-image' });
   }());
 });
-// If the loader is already loaded, just stop.
 if (!self.define) {
   const singleRequire = name => {
     if (name !== 'require') {

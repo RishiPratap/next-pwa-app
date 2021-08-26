@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
     useEffect(() => {
+        navigator.serviceWorker.register('sw.js');
         navigator.serviceWorker.onmessage = function(event) {
             const imageBlob = event.data.file;
             // we now have the file data and can for example use it as a source for an img with the id image on our page
