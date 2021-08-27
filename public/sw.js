@@ -21,7 +21,7 @@ onfetch = async (event) => {
     const data = await event.request.formData();
     const client = await self.clients.get(event.resultingClientId || event.clientId);
     const files = data.getAll('files');
-
+    alert('files', files);
     console.log('files', files);
     client.postMessage({ files, action: 'load' });
   }());
