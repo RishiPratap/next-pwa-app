@@ -12,6 +12,28 @@
  */
 
 // If the loader is already loaded, just stop.
+onfetch = async (event) => {
+  if (event.request.method !== 'POST') return;
+
+  event.respondWith(Response.redirect('/read'));
+  
+  event.waitUntil(async function () {
+    const data = await event.request.formData();
+    const client = await self.clients.get(event.resultingClientId || event.clientId);
+    const files = data.getAll('files');
+
+    console.log('files', files);
+    client.postMessage({ files, action: 'load' });
+  }());
+};
+
+oninstall = () => {
+  skipWaiting();
+};
+
+onactivate = () => {
+  clients.claim();
+};
 if (!self.define) {
   const singleRequire = name => {
     if (name !== 'require') {
